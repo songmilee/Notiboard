@@ -1,0 +1,22 @@
+html, body{
+	margin : 0;
+	padding : 0;
+	height: 100%;
+	weight: 100%;
+}
+
+.main-view{
+	height: 100vh;
+	weight: 100vw;
+	padding: 20%;
+}
+
+#enter-view{
+	background-image : url('../img/enter_back.jpg');
+	background-repeat : no-repeat;
+	background-size : 100% 100%;
+	opacity : 0.5;
+	color : white;
+	padding-top: 20%;
+	font-weight : bold;
+}
