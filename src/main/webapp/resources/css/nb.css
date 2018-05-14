@@ -5,18 +5,26 @@ html, body{
 	weight: 100%;
 }
 
-.main-view{
-	height: 100vh;
-	weight: 100vw;
-	padding: 20%;
+
+.container{
+	width: 70%;
+	height: 70%;
+	margin: 40px auto;
 }
+
+.outer{
+	padding-top : 10%;
+	padding-left : 30%;
+}
+
 
 #enter-view{
 	background-image : url('../img/enter_back.jpg');
 	background-repeat : no-repeat;
-	background-size : 100% 100%;
+	background-size : cover;
 	opacity : 0.5;
-	color : white;
 	padding-top: 20%;
+	padding-right: 15%;
+	color : white;
 	font-weight : bold;
 }
