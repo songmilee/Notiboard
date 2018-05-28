@@ -11,8 +11,8 @@
 			<div class="row" style="padding-top:20px; padding-bottom:10px;">
 				<a href="/write"><button class="btn btn-primary">글 쓰기</button></a>
 			</div>
-			<div class="row">
-				<table class="table">
+			<div class="row table-responsive">
+				<table class="table" id="board">
 					<thead class="thead-dark">
 						<tr>
 							<th scope="col">no</th>
