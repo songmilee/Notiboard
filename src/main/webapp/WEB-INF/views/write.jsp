@@ -13,6 +13,11 @@
 	  				<input type="text" class="form-control bottom-space" id="title"></input>
 				</div>
 				
+				<div class="row">
+					<label for="name">작성자</label>
+					<input type="text" class="form-control bottom-space" value="${user_name}" id="name"/>
+				</div>
+				
 				<div class="row bottom-space">
 					<label for="detail">내용</label>
 	  				<textarea class="form-control" rows="10" id="detail"></textarea>

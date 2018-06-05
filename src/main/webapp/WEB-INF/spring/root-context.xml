@@ -13,15 +13,15 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	<!-- mysql on local PC -->
+	<!-- mysql on remote server -->
     <bean id="dataSource"
         class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
         <property name="url"
-            value="jdbc:mysql://127.0.0.1:3306/notiboard?useSSL=false&amp;serverTimezone=UTC">
+            value="jdbc:mysql://den1.mysql5.gear.host:3306/wilog?useSSL=false&amp;serverTimezone=UTC">
         </property>
-        <property name="username" value="root"></property>
-        <property name="password" value="3306"></property>
+        <property name="username" value="wilog"></property>
+        <property name="password" value="noti01!"></property>
     </bean>
     
     <!-- mybatis SqlSessionFactoryBean -->
