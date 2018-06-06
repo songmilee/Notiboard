@@ -27,7 +27,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="mi.noti.board" />
+	<context:component-scan base-package="mi.noti.board" />	
 	
 	
 </beans:beans>

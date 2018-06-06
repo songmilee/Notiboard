@@ -3,24 +3,24 @@
 <%@ page session="false" %>
 <html>
 	<%@ include file="./partial/header.html" %>
-<body>
+<body ng-app="noti">
 
-	<div class="container">
-		<form role="form">
+	<div class="container" ng-controller="writeController">
+		<form role="form" ng-submit="submit()">
 			<div class="form-group">
 				<div class="row">
 					<label for="title">제목</label>
-	  				<input type="text" class="form-control bottom-space" id="title"></input>
+	  				<input type="text" class="form-control bottom-space" ng-model="title" id="title"></input>
 				</div>
 				
 				<div class="row">
 					<label for="name">작성자</label>
-					<input type="text" class="form-control bottom-space" value="${user_name}" id="name"/>
+					<input type="text" class="form-control bottom-space" ng-model="name" id="name"/>
 				</div>
 				
 				<div class="row bottom-space">
 					<label for="detail">내용</label>
-	  				<textarea class="form-control" rows="10" id="detail"></textarea>
+	  				<textarea class="form-control" rows="10" id="detail" ng-model="detail"></textarea>
 				</div>
 				
 				<div class="row float-right">

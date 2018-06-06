@@ -5,12 +5,12 @@
 	<%@ include file="./partial/header.html" %>
 <body>
 	<div ng-app="noti" ng-controller="blistController" class="row">
-		<div class="container">
-			<h5>Welcome! ${user_name}</h5>
+		<div class="container">			
 			
 			<div id="writeData" class="row" style="padding-top:20px; padding-bottom:10px;">
-				<button ng-click="moveToWritePage('${user_name}')" class="btn btn-primary">글 쓰기</button>
+				<button ng-click="writePage()" class="btn btn-primary">글 쓰기</button>
 			</div>
+			
 			<div class="row table-responsive">
 				<table class="table" id="board">
 					<thead class="thead-dark">

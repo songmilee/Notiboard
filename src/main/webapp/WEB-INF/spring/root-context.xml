@@ -27,6 +27,16 @@
     <!-- mybatis SqlSessionFactoryBean -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
+        
+        <!-- 스프링 시작될 때 같이 실행되도록 설정 -->
+        <property name="mapperLocations" value="classpath:mapper/**/*Mapper.xml"></property>
+        
     </bean>
+    
+    <!-- SQLSessionTemplate설정하기 DAO인터페이스를 만들었기때문에 Mybatis에서 DAO인터페이스를 구현하기위해서 필요한작업 -->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>    
+    </bean>
+
 		
 </beans>

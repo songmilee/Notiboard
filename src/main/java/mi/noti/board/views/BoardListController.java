@@ -1,4 +1,4 @@
-package mi.noti.board;
+package mi.noti.board.views;
 
 
 import org.springframework.stereotype.Controller;
@@ -15,19 +15,18 @@ import mi.noti.board.model.User;
 public class BoardListController {
 	
 	@RequestMapping(value = "/blist", method = RequestMethod.GET)
-	public String blist(Model model) {
-		return "home";
+	public String blist() {
+		return "blist";
 	}
 	
 	@RequestMapping(value = "/blist", method = RequestMethod.POST)
-	public String blist(@ModelAttribute("user")User user, 
+	public String blist(
 		      BindingResult result, ModelMap model) {
 		
 		if(result.hasErrors()) {
 			System.out.println(result.getObjectName());
 		}
-				
-		model.addAttribute("user_name", user.getUser_name());
+		
 		return "blist";
 	}
 
