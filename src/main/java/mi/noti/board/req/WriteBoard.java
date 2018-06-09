@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import mi.noti.board.dao.WriteDAO;
+import mi.noti.board.dao.NotiDAO;
 import mi.noti.board.model.NotiTxt;
 /*
  * 웹 페이지로부터 글 정보를 받아
@@ -21,7 +21,7 @@ import mi.noti.board.model.NotiTxt;
 @Controller
 public class WriteBoard {
 	@Inject
-	private WriteDAO dao;
+	private NotiDAO dao;
 
 	@RequestMapping(value= "/request/write", method = RequestMethod.POST)
 	@ResponseBody

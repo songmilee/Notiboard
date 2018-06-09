@@ -3,8 +3,12 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
-<mapper namespace="mi.noti.board.mapper.WriteMapper">
+<mapper namespace="mi.noti.board.mapper.NotiMapper">
 	<insert id="insertWrite">
 		insert into notitxt values(null, #{title}, #{detail}, #{userName}, 0, now())
 	</insert>
+	
+	<select id="selectNotiTxtList" resultType="mi.noti.board.model.NotiTxt">
+		select no, title, name as userName, hit, created as date from notitxt
+	</select>
 </mapper>

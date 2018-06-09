@@ -23,12 +23,12 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<th scope="row">1</th>
-							<td>a</td>
-							<td>a</td>
-							<td>a</td>
-							<td>a</td>
+						<tr ng-repeat="x in result">
+							<th scope="row">{{ x.no }}</th>
+							<td>{{x.title}}</td>
+							<td>{{x.userName}}</td>
+							<td>{{x.date}}</td>
+							<td>{{x.hit}}</td>
 						</tr>
 					</tbody>
 				</table>

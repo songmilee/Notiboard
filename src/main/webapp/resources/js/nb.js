@@ -1,5 +1,7 @@
 var app = angular.module('noti', ['ngRoute']);
 
+var currentPage = 0;
+
 app.config(function($locationProvider, $routeProvider){
 	  $locationProvider.html5Mode({
 	    enabled: true,
@@ -8,6 +10,19 @@ app.config(function($locationProvider, $routeProvider){
 });
 
 app.controller('blistController', function($scope, $window, $http){
+	$scope.result = [];
+	//controller page에 접속 되었을 때
+	$http({
+		method: "POST",
+		url : "/request/listboard",
+		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+		data : $.param({ curpage : currentPage })		
+	}).then(function success(res){
+		$scope.result = res.data;		
+	}), function fail(res){				
+		alert("Sorry, Internal Error");
+	}
+	
 	$scope.writePage = function(){
 		$window.location.href="/write";
 	}
