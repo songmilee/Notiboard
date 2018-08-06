@@ -15,7 +15,7 @@
 				
 				<div class="row">
 					<label for="name">작성자</label>
-					<input type="text" class="form-control bottom-space" ng-model="name" id="name"/>
+					<input type="text" class="form-control bottom-space" id="name" ng-model="name"/>
 				</div>
 				
 				<div class="row bottom-space">

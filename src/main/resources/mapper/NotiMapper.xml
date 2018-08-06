@@ -9,6 +9,6 @@
 	</insert>
 	
 	<select id="selectNotiTxtList" resultType="mi.noti.board.model.NotiTxt">
-		select no, title, name as userName, hit, created as date from notitxt
+		select no, title, name as userName, hit, created as date from notitxt order by notitxt.no desc
 	</select>
 </mapper>

@@ -6,7 +6,7 @@
 <body>
 	<div ng-app="noti" ng-controller="blistController" class="row">
 		<div class="container">			
-			
+			<p>Hello! <%= request.getParameter("user_name") %></p>
 			<div id="writeData" class="row" style="padding-top:20px; padding-bottom:10px;">
 				<button ng-click="writePage()" class="btn btn-primary">글 쓰기</button>
 			</div>
@@ -23,7 +23,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="x in result">
+						<tr ng-repeat="x in result" ng-click=getID(x)>
 							<th scope="row">{{ x.no }}</th>
 							<td>{{x.title}}</td>
 							<td>{{x.userName}}</td>

@@ -5,8 +5,11 @@
 <body>
 	<div class="row" id="enter-view">
 		<div class="container">
-			<div class="outer">								
-				<a href="/blist"><button class="btn btn-default btn-primary">Click this Button !</button></a>						
+			<div class="outer">
+				<form action="/blist">
+					<input type="text" name="user_name" placeholder="Enter your name">								
+					<input type="submit" class="btn btn-default btn-primary" value="Enter">
+				</form>						
 				<p><br>The time on the server is ${serverTime}. </p>								
 			</div>
 		</div>
