@@ -26,8 +26,8 @@
 						<tr ng-repeat="x in result" ng-click=getID(x)>
 							<th scope="row">{{ x.no }}</th>
 							<td>{{x.title}}</td>
-							<td>{{x.userName}}</td>
-							<td>{{x.date}}</td>
+							<td>{{x.name}}</td>
+							<td>{{x.created}}</td>
 							<td>{{x.hit}}</td>
 						</tr>
 					</tbody>

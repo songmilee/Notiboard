@@ -1,18 +1,18 @@
 package mi.noti.board.model;
 
 public class NotiTxt {
-	private String userName;
+	private String name;
 	private String title;
 	private String detail;
 	private int no;
 	private int hit;
-	private String date;
+	private String created;
 	
-	public String getUserName() {
-		return userName;
+	public String getname() {
+		return name;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setname(String name) {
+		this.name = name;
 	}
 	public String getTitle() {
 		return title;
@@ -38,11 +38,11 @@ public class NotiTxt {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	public String getDate() {
-		return date;
+	public String getcreated() {
+		return created;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setcreated(String created) {
+		this.created = created;
 	}	
 	
 }

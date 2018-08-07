@@ -30,13 +30,8 @@ app.controller('blistController', function($scope, $window, $http, $location){
 	$scope.getID = function(x){
 		user_name = $location.search().user_name;
 		no = x.no;
-		title = x.title;
-		writer = x.userName;
-		date = x.date;
-		hit = x.hit;
 		
-		$window.location.href="/view?user_name="+user_name+"&no="+no+"&title="+title
-							  +"&writer="+writer+"&date="+date+"&hit="+hit;
+		$window.location.href="/view?user_name="+user_name+"&no="+no;
 	}
 	
 });
@@ -82,6 +77,31 @@ app.controller('writeController', function($scope, $window, $http, $location){
 });
 
 app.controller('viewController', function($scope, $http, $window, $location){
+	no = $location.search().no;
+	$http({
+		method: "GET",
+		url : "/request/detailboard/?no="+no,		
+	}).then(function success(res){
+	
+		if(res.data.result == 1 && res.data.data.length > 0){
+			data = res.data.data[0];
+			
+			$scope.detail = data.detail;
+			$scope.writer = data.name;
+			$scope.title = data.title;
+			$scope.date = data.created;
+			$scope.hit = data.hit;
+			
+		} else {
+			alert("요청하신 자료가 없습니다. 목록으로 돌아갑니다.");
+			$window.location.href = "/blist?user_name="+$location.search().user_name;
+		}
+		
+	}), function fail(res){				
+		alert("Sorry, Internal Error");
+		
+	}
+	
 	$scope.writeComment = function(){
 		
 	};
@@ -89,4 +109,22 @@ app.controller('viewController', function($scope, $http, $window, $location){
 	$scope.goList = function(){
 		$window.location.href = "/blist?user_name="+$location.search().user_name;
 	};
+	
+	$scope.goNext = function(){
+		next = Number(no) + 1;
+		user_name = $location.search().user_name;
+		
+		$window.location.href="/view?user_name="+user_name+"&no="+next;
+	}
+	
+	$scope.goPrev = function(){
+		prev = Number(no) - 1;
+		user_name = $location.search().user_name;
+		
+		if(prev > 0){
+			$window.location.href="/view?user_name="+user_name+"&no="+prev;
+		} else {
+			alert("목록의 마지막 입니다.");
+		}
+	}
 });

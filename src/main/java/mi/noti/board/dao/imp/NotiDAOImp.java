@@ -10,10 +10,10 @@ import org.springframework.stereotype.Repository;
 import mi.noti.board.dao.NotiDAO;
 import mi.noti.board.model.NotiTxt;
 
-@Repository // DAO 명시
+@Repository // DAO 紐낆떆
 public class NotiDAOImp implements NotiDAO {
 
-	@Inject // 의존관계 연결
+	@Inject // �쓽議닿�怨� �뿰寃�
 	private SqlSession sqlSession;
 	
 	private static final String namespace = "mi.noti.board.mapper.NotiMapper";
@@ -33,6 +33,12 @@ public class NotiDAOImp implements NotiDAO {
 		// TODO Auto-generated method stub		
 		
 		return sqlSession.selectList(namespace+".selectNotiTxtList");
+	}
+
+	@Override
+	public List<NotiTxt> selectNotiTxt(Integer no) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace+".selecctNotiTxt", no);
 	}
 
 }

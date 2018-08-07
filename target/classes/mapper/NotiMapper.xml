@@ -9,6 +9,10 @@
 	</insert>
 	
 	<select id="selectNotiTxtList" resultType="mi.noti.board.model.NotiTxt">
-		select no, title, name as userName, hit, created as date from notitxt order by notitxt.no desc
+		select no, title, name, hit, created from notitxt order by notitxt.no desc
+	</select>
+	
+	<select id="selecctNotiTxt" resultType="mi.noti.board.model.NotiTxt">
+		select * from notitxt where notitxt.no = #{no}
 	</select>
 </mapper>

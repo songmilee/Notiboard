@@ -10,25 +10,25 @@
 		<div class="bottom-space">
 			<button class="btn btn-default btn-primary" ng-click="goList()">목록</button>
 			<div class="float-right">
-				<button class="btn btn-default">다음글</button>
-				<button class="btn btn-default">이전글</button>
+				<button class="btn btn-default" ng-click="goNext()">다음글</button>
+				<button class="btn btn-default" ng-click="goPrev()">이전글</button>
 			</div>			
 		</div>
 		
 		<!-- board detail -->
 		<div class="bottom-space">
 			<div class="card">
-				<div class="card-header"><%= request.getParameter("title") %></div>
+				<div class="card-header">{{ title }}</div>
 			</div>
 				
 			
 			<div class="card-body bottom-space">
-				<p class="text-right bottom-space">날짜 : <%= request.getParameter("date") %> 조회수 : <%= request.getParameter("hit") %></p>			
-				<p class="card-text">내용</p>
+				<p class="text-right bottom-space">날짜 : {{ date }} 조회수 : {{ hit }}</p>			
+				<p class="card-text">{{ detail }}</p>
 			</div>
 			
 			<div class="card-footer bottom-space">
-				<div class="text-right">작성자 : <%= request.getParameter("writer") %></div>
+				<div class="text-right">작성자 : {{ writer }}</div>
 			</div>
 			<div style="padding-left:15px; padding-right:15px;">
 			<form action="writeComment()">
@@ -74,8 +74,8 @@
 		<div class="bottom-space">
 			<button class="btn btn-default btn-primary" ng-click="goList()">목록</button>
 			<div class="float-right">
-				<button class="btn btn-default">다음글</button>
-				<button class="btn btn-default">이전글</button>
+				<button class="btn btn-default" ng-click="goNext()">다음글</button>
+				<button class="btn btn-default" ng-click="goPrev()">이전글</button>
 			</div>			
 		</div>
 					

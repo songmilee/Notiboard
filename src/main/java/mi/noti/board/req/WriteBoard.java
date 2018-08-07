@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import mi.noti.board.dao.NotiDAO;
 import mi.noti.board.model.NotiTxt;
 /*
- * 웹 페이지로부터 글 정보를 받아
- * 데이터베이스에 작성
+ * �쎒 �럹�씠吏�濡쒕��꽣 湲� �젙蹂대�� 諛쏆븘
+ * �뜲�씠�꽣踰좎씠�뒪�뿉 �옉�꽦
  * */
 @Controller
 public class WriteBoard {
@@ -33,7 +33,7 @@ public class WriteBoard {
 		String jsonString = "";
 		
 		NotiTxt notiTxt = new NotiTxt();
-		notiTxt.setUserName(name);
+		notiTxt.setname(name);
 		notiTxt.setTitle(title);
 		notiTxt.setDetail(detail);
 		
