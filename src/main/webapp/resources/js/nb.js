@@ -11,25 +11,14 @@ app.config(function($locationProvider, $routeProvider){
 
 app.controller('blistController', function($scope, $window, $http, $location){
 	$scope.result = [];
-	//controller page에 접속 되었을 때
-	$http({
-		method: "POST",
-		url : "/request/listboard",
-		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-		data : $.param({ curpage : currentPage })		
-	}).then(function success(res){
-		$scope.result = res.data;	
-	}), function fail(res){				
-		alert("Sorry, Internal Error");
-	}
-	
+
 	$scope.writePage = function(){
 		$window.location.href="/write?user_name="+$location.search().user_name;
 	}
 	
 	$scope.getID = function(x){
 		user_name = $location.search().user_name;
-		no = x.no;
+		no = x;
 		
 		$window.location.href="/view?user_name="+user_name+"&no="+no;
 	}

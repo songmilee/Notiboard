@@ -8,7 +8,7 @@
 		insert into notitxt values(null, #{title}, #{detail}, #{userName}, 0, now())
 	</insert>
 	
-	<select id="selectNotiTxtList" resultType="mi.noti.board.model.NotiTxt">
+	<select id="selectNotiTxtList" resultType="hashmap" ><!--resultType="mi.noti.board.model.NotiTxt"-->
 		select no, title, name, hit, created from notitxt order by notitxt.no desc
 	</select>
 	

@@ -1,6 +1,7 @@
 package mi.noti.board.dao.imp;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -29,7 +30,7 @@ public class NotiDAOImp implements NotiDAO {
 	}
 
 	@Override
-	public List<NotiTxt> selectNotiTxtList() {
+	public List<Map<String, Object>> selectNotiTxtList() {
 		// TODO Auto-generated method stub		
 		
 		return sqlSession.selectList(namespace+".selectNotiTxtList");

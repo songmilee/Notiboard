@@ -24,7 +24,7 @@ public class ListBoard {
 	@Inject
 	private NotiDAO dao;
 	
-	@RequestMapping(value= "/request/listboard", method = RequestMethod.POST)
+	/*@RequestMapping(value= "/request/listboard", method = RequestMethod.POST)
 	@ResponseBody
 	public String ListReq(@RequestParam("curpage") int curpage) {
 		Map<String, String> message = new HashMap<String, String>();
@@ -36,7 +36,7 @@ public class ListBoard {
 			
 			jsonString = mapper.writeValueAsString(result);
 		}catch(Exception e) {
-			//error message 생성			
+			//error message �깮�꽦			
 			message.put("result", "error occur");
 			
 			try {
@@ -57,5 +57,5 @@ public class ListBoard {
 		 
 		
 		return jsonString;
-	}
+	}*/
 }
