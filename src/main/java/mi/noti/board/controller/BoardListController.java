@@ -1,4 +1,4 @@
-package mi.noti.board.views;
+package mi.noti.board.controller;
 
 
 import java.util.List;

@@ -15,7 +15,7 @@ import mi.noti.board.service.BoardService;
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
 	
-	@Inject
+	@Resource(name="notiDAO")
 	private NotiDAO notiDAO;
 	
 	@Override

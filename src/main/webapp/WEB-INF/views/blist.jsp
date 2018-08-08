@@ -31,13 +31,6 @@
 						</tr>
 					</thead>
 					<tbody>
-					<!-- tr ng-repeat="x in result" ng-click=getID(x)>
-							<th scope="row">{{ x.no }}</th>
-							<td>{{x.title}}</td>
-							<td>{{x.name}}</td>
-							<td>{{x.created}}</td>
-							<td>{{x.hit}}</td>
-						</tr-->
 						<c:choose>
 							<c:when test="${fn:length(list) > 0}">
 								<c:forEach items="${list }" var="row">

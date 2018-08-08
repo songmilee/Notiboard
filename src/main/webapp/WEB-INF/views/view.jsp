@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page pageEncoding="utf-8" %>
 <%@ page session="false" %>
 <html>
@@ -17,20 +18,20 @@
 		
 		<!-- board detail -->
 		<div class="bottom-space">
+		
 			<div class="card">
-				<div class="card-header">{{ title }}</div>
-			</div>
-				
-			
+				<div class="card-header">${ result.title }</div>
+			</div>	
 			<div class="card-body bottom-space">
-				<p class="text-right bottom-space">날짜 : {{ date }} 조회수 : {{ hit }}</p>			
-				<p class="card-text">{{ detail }}</p>
+				<p class="text-right bottom-space">날짜 : ${ result.created} 조회수 : ${result.hit}</p>			
+				<p class="card-text">${result.detail}</p>
 			</div>
 			
 			<div class="card-footer bottom-space">
-				<div class="text-right">작성자 : {{ writer }}</div>
+				<div class="text-right">작성자 : ${result.name}</div>
 			</div>
 			<div style="padding-left:15px; padding-right:15px;">
+			
 			<form action="writeComment()">
 				<div class="form-group">					
 					<div class="row bottom-space">

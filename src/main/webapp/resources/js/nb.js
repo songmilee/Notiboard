@@ -42,13 +42,13 @@ app.controller('writeController', function($scope, $window, $http, $location){
 			
 			$http({
 				method : "POST",
-				url : "/request/write",
+				url : "/write",
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 				data : $.param(notiTxt)
 			}).then(function success(res){
 				console.log(res.data.result);
 				
-				if(res.data.result == "true"){
+				if(res.data.result == 1){
 					$window.location.href = "/blist?user_name="+notiTxt.name;
 				} else {
 					alert("sorry, Internal Error! back to home!");
@@ -67,29 +67,6 @@ app.controller('writeController', function($scope, $window, $http, $location){
 
 app.controller('viewController', function($scope, $http, $window, $location){
 	no = $location.search().no;
-	$http({
-		method: "GET",
-		url : "/request/detailboard/?no="+no,		
-	}).then(function success(res){
-	
-		if(res.data.result == 1 && res.data.data.length > 0){
-			data = res.data.data[0];
-			
-			$scope.detail = data.detail;
-			$scope.writer = data.name;
-			$scope.title = data.title;
-			$scope.date = data.created;
-			$scope.hit = data.hit;
-			
-		} else {
-			alert("요청하신 자료가 없습니다. 목록으로 돌아갑니다.");
-			$window.location.href = "/blist?user_name="+$location.search().user_name;
-		}
-		
-	}), function fail(res){				
-		alert("Sorry, Internal Error");
-		
-	}
 	
 	$scope.writeComment = function(){
 		
