@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import mi.noti.board.model.NotiTxt;
 
 public interface NotiDAO {
-	public boolean insertWrite(NotiTxt no);
+	public boolean insertText(NotiTxt no);
 	public List<Map<String, Object>> selectNotiTxtList() throws Exception;
 	public NotiTxt selectNotiTxt(Integer no) throws Exception;
 }

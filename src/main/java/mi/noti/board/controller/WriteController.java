@@ -18,12 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import mi.noti.board.dao.NotiDAO;
 import mi.noti.board.model.NotiTxt;
 import mi.noti.board.model.User;
+import mi.noti.board.service.BoardService;
 
 
 @Controller
 public class WriteController {
-	@Resource(name="notiDAO")
-	private NotiDAO notiDAO;
+	@Resource(name="boardService")
+	private BoardService bs;
 	
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public String write() {		
@@ -49,7 +50,7 @@ public class WriteController {
 		notiTxt.setTitle(title);
 		notiTxt.setDetail(detail);
 		
-		boolean result = notiDAO.insertWrite(notiTxt);
+		boolean result = bs.insertWrite(notiTxt);
 		
 		if(result) {
 			message.put("result", 1);

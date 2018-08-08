@@ -24,4 +24,16 @@ public class BoardServiceImpl implements BoardService {
 		return notiDAO.selectNotiTxtList();
 	}
 
+	@Override
+	public NotiTxt selectNotiTxt(int no) throws Exception {
+		// TODO Auto-generated method stub
+		return notiDAO.selectNotiTxt(no);
+	}
+
+	@Override
+	public boolean insertWrite(NotiTxt notiTxt) throws Exception {
+		// TODO Auto-generated method stub
+		return notiDAO.insertText(notiTxt);
+	}
+
 }

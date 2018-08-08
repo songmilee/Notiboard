@@ -20,7 +20,7 @@ public class NotiDAOImp implements NotiDAO {
 	private static final String namespace = "mi.noti.board.mapper.NotiMapper";
 	
 	@Override
-	public boolean insertWrite(NotiTxt no) {
+	public boolean insertText(NotiTxt no) {
 		// TODO Auto-generated method stub
 		int val = sqlSession.insert(namespace+".insertWrite", no);
 		

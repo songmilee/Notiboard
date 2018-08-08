@@ -13,16 +13,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import mi.noti.board.dao.NotiDAO;
 import mi.noti.board.model.NotiTxt;
+import mi.noti.board.service.BoardService;
 
 @Controller
 public class ViewController {
-	@Resource(name="notiDAO")
-	private NotiDAO notiDAO;
+	@Resource(name="boardService")
+	private BoardService bs;
 	
 	@RequestMapping(value = "/view", method = RequestMethod.GET)
 	public ModelAndView view(@RequestParam("no") int no) throws Exception {
 		ModelAndView mv = new ModelAndView("view");
-		NotiTxt result = notiDAO.selectNotiTxt(no); 
+		NotiTxt result = bs.selectNotiTxt(no); 
 		
 		mv.addObject("result", result);
 		return mv;
