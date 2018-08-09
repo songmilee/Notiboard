@@ -1,7 +1,5 @@
 var app = angular.module('noti', ['ngRoute']);
 
-var currentPage = 0;
-
 app.config(function($locationProvider, $routeProvider){
 	  $locationProvider.html5Mode({
 	    enabled: true,
@@ -21,6 +19,13 @@ app.controller('blistController', function($scope, $window, $http, $location){
 		no = x;
 		
 		$window.location.href="/view?user_name="+user_name+"&no="+no;
+	}
+	
+	$scope.paging = function(x){
+		user_name = $location.search().user_name;
+		curpage = x;
+		
+		$window.location.href="/blist?user_name="+user_name+"&curpage="+curpage;
 	}
 	
 });
@@ -76,11 +81,15 @@ app.controller('viewController', function($scope, $http, $window, $location){
 		$window.location.href = "/blist?user_name="+$location.search().user_name;
 	};
 	
-	$scope.goNext = function(){
+	$scope.goNext = function(total){
 		next = Number(no) + 1;
 		user_name = $location.search().user_name;
 		
-		$window.location.href="/view?user_name="+user_name+"&no="+next;
+		if(total >= next){
+			$window.location.href="/view?user_name="+user_name+"&no="+next;
+		} else {
+			alert("목록의 마지막 입니다.");
+		}
 	}
 	
 	$scope.goPrev = function(){

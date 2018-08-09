@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import mi.noti.board.dao.NotiDAO;
 import mi.noti.board.model.NotiTxt;
+import mi.noti.board.model.Page;
 import mi.noti.board.service.BoardService;
 
 @Service("boardService")
@@ -34,6 +35,12 @@ public class BoardServiceImpl implements BoardService {
 	public boolean insertWrite(NotiTxt notiTxt) throws Exception {
 		// TODO Auto-generated method stub
 		return notiDAO.insertText(notiTxt);
+	}
+
+	@Override
+	public int updateHit(int no) throws Exception {
+		// TODO Auto-generated method stub
+		return notiDAO.updateHit(no);
 	}
 
 }

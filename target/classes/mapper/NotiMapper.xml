@@ -8,11 +8,16 @@
 		insert into notitxt values(null, #{title}, #{detail}, #{name}, 0, now())
 	</insert>
 	
-	<select id="selectNotiTxtList" resultType="hashmap" ><!--resultType="mi.noti.board.model.NotiTxt"-->
+	<!--  parameterType="mi.noti.board.model.Page" -->
+	<select id="selectNotiTxtList" resultType="hashmap" >
 		select no, title, name, hit, created from notitxt order by notitxt.no desc
 	</select>
 	
 	<select id="selectNotiTxt" resultType="mi.noti.board.model.NotiTxt">
 		select * from notitxt where notitxt.no = #{no}
 	</select>
+	
+	<update id="updateHit">
+		update notitxt set hit = hit + 1 where notitxt.no = #{no}
+	</update>
 </mapper>

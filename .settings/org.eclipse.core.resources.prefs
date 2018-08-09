@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-encoding//src/main/java/mi/noti/board/common/Common.java=UTF-8
 encoding//src/main/java/mi/noti/board/dao/imp/NotiDAOImp.java=UTF-8
+encoding//src/main/java/mi/noti/board/model/Page.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/blist.jsp=UTF-8

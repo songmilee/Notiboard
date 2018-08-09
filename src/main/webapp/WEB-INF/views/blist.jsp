@@ -8,6 +8,8 @@
 	<div ng-app="noti" ng-controller="blistController" class="row">
 		<div class="container">			
 			<p>Hello! <%= request.getParameter("user_name") %></p>
+			<p>전체 게시글 : ${total }</p>
+			
 			<div id="writeData" class="row" style="padding-top:20px; padding-bottom:10px;">
 				<button ng-click="writePage()" class="btn btn-primary">글 쓰기</button>
 			</div>
@@ -33,7 +35,7 @@
 					<tbody>
 						<c:choose>
 							<c:when test="${fn:length(list) > 0}">
-								<c:forEach items="${list }" var="row">
+								<c:forEach items="${list }" begin="${ page.startIndex }" end="${page.startIndex + page.pageSize }" var="row">
 									<tr ng-click=getID('${row.no }')>
 										<td>${row.no }</td>
 										<td>${row.title }</td>
@@ -52,6 +54,33 @@
 						</c:choose>						
 					</tbody>
 				</table>
+			</div>
+			
+			<div class = "page">
+				<c:if test="${page.curBlock ne 1 }">
+					<a href="#" ng-click="paging(1)">[처음]</a>
+				</c:if>
+				<c:if test="${page.curPage ne 1 }">
+					<a href="#" ng-click="paging('${page.prevPage }')">[이전]</a>
+				</c:if>
+				
+				<c:forEach var="pageNum" begin="${page.startPage }" end="${page.endPage }">
+					<c:choose>
+						<c:when test="${pageNum eq page.curPage }">
+							<span style="font-weight:bold;"><a href="#">${pageNum }</a>
+						</c:when>
+						<c:otherwise>
+							<a href="#" ng-click="paging('${pageNum}')">${pageNum }</a>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				
+				<c:if test="${page.curPage ne page.totalPage && page.totalPage > 0 }">
+					<a href="#" ng-click="paging('${page.nextPage }')">[다음]</a>
+				</c:if>
+				<c:if test="${page.curBlock ne page.totalBlock && page.totalBlock > 0 }">
+					<a href="#" ng-click="paging('${page.totalPage }')">[끝]</a>
+				</c:if>
 			</div>
 		</div>
 	</div>

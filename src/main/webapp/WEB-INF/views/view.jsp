@@ -11,7 +11,7 @@
 		<div class="bottom-space">
 			<button class="btn btn-default btn-primary" ng-click="goList()">목록</button>
 			<div class="float-right">
-				<button class="btn btn-default" ng-click="goNext()">다음글</button>
+				<button class="btn btn-default" ng-click="goNext(${total })">다음글</button>
 				<button class="btn btn-default" ng-click="goPrev()">이전글</button>
 			</div>			
 		</div>
@@ -75,7 +75,7 @@
 		<div class="bottom-space">
 			<button class="btn btn-default btn-primary" ng-click="goList()">목록</button>
 			<div class="float-right">
-				<button class="btn btn-default" ng-click="goNext()">다음글</button>
+				<button class="btn btn-default" ng-click="goNext(${total })">다음글</button>
 				<button class="btn btn-default" ng-click="goPrev()">이전글</button>
 			</div>			
 		</div>
