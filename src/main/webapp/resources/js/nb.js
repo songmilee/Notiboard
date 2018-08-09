@@ -1,5 +1,6 @@
 var app = angular.module('noti', ['ngRoute']);
 
+var curpage = 1;
 app.config(function($locationProvider, $routeProvider){
 	  $locationProvider.html5Mode({
 	    enabled: true,
@@ -18,7 +19,11 @@ app.controller('blistController', function($scope, $window, $http, $location){
 		user_name = $location.search().user_name;
 		no = x;
 		
-		$window.location.href="/view?user_name="+user_name+"&no="+no;
+		tempPage = $location.search().curpage;
+		if(!(tempPage == undefined))
+			curpage = tempPage;
+		
+		$window.location.href="/view?user_name="+user_name+"&curpage="+curpage+"&no="+no;
 	}
 	
 	$scope.paging = function(x){
@@ -78,7 +83,11 @@ app.controller('viewController', function($scope, $http, $window, $location){
 	};
 	
 	$scope.goList = function(){
-		$window.location.href = "/blist?user_name="+$location.search().user_name;
+		tempPage = $location.search().curpage;
+		if(!(tempPage == undefined))
+			curpage = tempPage;
+		
+		$window.location.href = "/blist?user_name="+$location.search().user_name+"&curpage="+curpage;
 	};
 	
 	$scope.goNext = function(total){

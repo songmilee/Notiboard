@@ -36,13 +36,15 @@
 						<c:choose>
 							<c:when test="${fn:length(list) > 0}">
 								<c:forEach items="${list }" begin="${ page.startIndex }" end="${page.startIndex + page.pageSize }" var="row">
-									<tr ng-click=getID('${row.no }')>
-										<td>${row.no }</td>
-										<td>${row.title }</td>
-										<td>${row.name } </td>
-										<td>${row.created } </td>
-										<td>${row.hit }</td>	
-									</tr>
+									<a href="#">
+										<tr ng-click=getID('${row.no }')>
+											<td>${row.no }</td>
+											<td>${row.title }</td>
+											<td>${row.name } </td>
+											<td>${row.created } </td>
+											<td>${row.hit }</td>	
+										</tr>
+									</a>
 								</c:forEach>
 							</c:when>
 							
@@ -67,7 +69,7 @@
 				<c:forEach var="pageNum" begin="${page.startPage }" end="${page.endPage }">
 					<c:choose>
 						<c:when test="${pageNum eq page.curPage }">
-							<span style="font-weight:bold;"><a href="#">${pageNum }</a>
+							<span style="font-weight:bold;"><a href="#" >${pageNum }</a>
 						</c:when>
 						<c:otherwise>
 							<a href="#" ng-click="paging('${pageNum}')">${pageNum }</a>
