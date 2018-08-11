@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import mi.noti.board.model.Comment;
 import mi.noti.board.model.NotiTxt;
 import mi.noti.board.model.Page;
 
@@ -13,4 +14,6 @@ public interface NotiDAO {
 	public List<Map<String, Object>> selectNotiTxtList() throws Exception;
 	public NotiTxt selectNotiTxt(Integer no) throws Exception;
 	public int updateHit(int no);
+	public List<Map<String, Object>> selectNotiComment(int no) throws Exception;
+	public int insertComment(Comment c);
 }

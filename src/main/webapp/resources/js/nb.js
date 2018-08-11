@@ -78,10 +78,6 @@ app.controller('writeController', function($scope, $window, $http, $location){
 app.controller('viewController', function($scope, $http, $window, $location){
 	no = $location.search().no;
 	
-	$scope.writeComment = function(){
-		
-	};
-	
 	$scope.goList = function(){
 		tempPage = $location.search().curpage;
 		if(!(tempPage == undefined))

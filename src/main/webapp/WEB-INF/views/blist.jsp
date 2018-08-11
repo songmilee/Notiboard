@@ -15,7 +15,7 @@
 			</div>
 			
 			<div class="row table-responsive">
-				<table class="table" id="board">
+				<table class="table table-hover" id="board">
 					<colgroup>
 						<col width="10%" />
 						<col width = "*"/>
@@ -36,15 +36,13 @@
 						<c:choose>
 							<c:when test="${fn:length(list) > 0}">
 								<c:forEach items="${list }" begin="${ page.startIndex }" end="${page.startIndex + page.pageSize }" var="row">
-									<a href="#">
-										<tr ng-click=getID('${row.no }')>
-											<td>${row.no }</td>
-											<td>${row.title }</td>
-											<td>${row.name } </td>
-											<td>${row.created } </td>
-											<td>${row.hit }</td>	
-										</tr>
-									</a>
+									<tr class='clickable-row' ng-click=getID('${row.no }')>
+										<td>${row.no }</td>
+										<td>${row.title }</td>
+										<td>${row.name } </td>
+										<td>${row.created } </td>
+										<td>${row.hit }</td>	
+									</tr>
 								</c:forEach>
 							</c:when>
 							

@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import mi.noti.board.dao.NotiDAO;
+import mi.noti.board.model.Comment;
 import mi.noti.board.model.NotiTxt;
 import mi.noti.board.model.Page;
 
@@ -47,6 +48,18 @@ public class NotiDAOImp implements NotiDAO {
 	public int updateHit(int no) {
 		// TODO Auto-generated method stub
 		return sqlSession.update(namespace + ".updateHit", no);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectNotiComment(int no) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace +".selectNotiComment", no);
+	}
+
+	@Override
+	public int insertComment(Comment c) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert(namespace+".insertComment", c);
 	}
 
 }

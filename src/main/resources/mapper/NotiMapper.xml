@@ -20,4 +20,12 @@
 	<update id="updateHit">
 		update notitxt set hit = hit + 1 where notitxt.no = #{no}
 	</update>
+	
+	<select id="selectNotiComment" resultType="hashmap">
+		select * from commet where commet.no = #{no}
+	</select>
+	
+	<insert id="insertComment" parameterType="mi.noti.board.model.Comment">
+		insert into commet values(null, #{no}, now(), #{detail})
+	</insert>
 </mapper>

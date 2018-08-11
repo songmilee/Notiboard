@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import mi.noti.board.dao.NotiDAO;
+import mi.noti.board.model.Comment;
 import mi.noti.board.model.NotiTxt;
 import mi.noti.board.model.Page;
 import mi.noti.board.service.BoardService;
@@ -26,8 +27,12 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public NotiTxt selectNotiTxt(int no) throws Exception {
+	public NotiTxt initViewText(int no) throws Exception {
 		// TODO Auto-generated method stub
+		//update hit
+		notiDAO.updateHit(no);
+		
+		//return noti text
 		return notiDAO.selectNotiTxt(no);
 	}
 
@@ -38,9 +43,17 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int updateHit(int no) throws Exception {
+	public List<Map<String, Object>> getCommentList(int no) throws Exception {
 		// TODO Auto-generated method stub
-		return notiDAO.updateHit(no);
+		return notiDAO.selectNotiComment(no);
 	}
 
+	@Override
+	public List<Map<String, Object>> addCommentList(Comment co) throws Exception {
+		// TODO Auto-generated method stub
+		int val = notiDAO.insertComment(co);
+		System.out.println(val);
+		
+		return notiDAO.selectNotiComment(co.getNo());
+	}
 }

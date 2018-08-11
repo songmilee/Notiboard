@@ -32,11 +32,15 @@
 			</div>
 			<div style="padding-left:15px; padding-right:15px;">
 			
-			<form action="writeComment()">
+			
+			
+			<!-- Comment Form -->
+			<form action="view" method="post">
 				<div class="form-group">					
 					<div class="row bottom-space">
-						<label for="comment">comment</label>
-		  				<textarea class="form-control" rows="3" id="comment"></textarea>
+						<label for="detail">comment</label>
+		  				<textarea class="form-control" rows="3" cols="40" id="detail" name="detail"></textarea>
+		  				<input type="hidden" name="no" id="no" value="<%= request.getParameter("no") %>" />
 					</div>
 					
 					<div class="row float-right bottom-space">
@@ -44,25 +48,41 @@
 					</div>
 				</div>
 			</form>
+			
 			</div>
 		</div>	
 		
 		<!-- comment list -->
 		<div class="table-responsive">
-			<table class="table table-hover" id="comment">
-				<tr>
-					<td>
-						<div class="row" style="margin-left:15px; margin-right:15px">
-							<p class="float-left">no. 이름</p>
-							<p class="float-right">날짜</p>
-						</div>
+			<table class="table" id="comment">
+				<tbody>
+					<c:choose>
+						<c:when test="${fn:length(comment) > 0}">
+							<c:forEach items="${comment }" var="com">
+								<tr>
+									<td>
+										<div class="row" style="margin-left:15px; margin-right:15px">
+											<p class="float-left">${com.pk }</p>
+											<p class="float-right">${com.created }</p>
+										</div>
+										
+										<div class="row" style="margin-left:15px; margin-right:15px">
+											<p>${com.detail }</p>
+										</div>		
+													
+									</td>
+								</tr>
+							</c:forEach>
+						</c:when>
 						
-						<div class="row" style="margin-left:15px; margin-right:15px">
-							<p>comment</p>
-						</div>		
-									
-					</td>
-				</tr>			
+						<c:otherwise>
+							<tr>
+								<td>등록된 댓글이 없습니다.</td>
+							</tr>
+						</c:otherwise>
+					</c:choose>
+				</tbody>
+							
 			</table>
 		</div>
 		
