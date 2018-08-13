@@ -49,6 +49,8 @@ app.controller('writeController', function($scope, $window, $http, $location){
 					title : $scope.title,
 					detail : $scope.detail					
 			}
+
+			$scope.disableBtn = true;
 			
 			$http({
 				method : "POST",
@@ -56,7 +58,6 @@ app.controller('writeController', function($scope, $window, $http, $location){
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 				data : $.param(notiTxt)
 			}).then(function success(res){
-				console.log(res.data.result);
 				
 				if(res.data.result == 1){
 					$window.location.href = "/blist?user_name="+notiTxt.name;

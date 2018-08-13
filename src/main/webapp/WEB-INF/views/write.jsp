@@ -23,8 +23,8 @@
 	  				<textarea class="form-control" rows="10" id="detail" ng-model="detail"></textarea>
 				</div>
 				
-				<div class="row float-right">
-					<button type="submit" class="btn btn-default btn-primary">작성</button>
+				<div class="row float-right" ng-init="disableBtn=false">
+					<button type="submit" class="btn btn-default btn-primary" ng-disabled="disableBtn">작성</button>
 				</div>
 			</div>
 		</form>	

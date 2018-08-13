@@ -43,7 +43,7 @@
 					</div>
 					
 					<div class="row right95">
-						<button type="submit" class="btn btn-default btn-primary">작성</button>
+						<button type="submit" onclick="this.disabled='disabled'; this.form.submit();" class="btn btn-default btn-primary">작성</button>
 					</div>
 				</div>
 			</form>

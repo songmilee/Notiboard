@@ -35,7 +35,7 @@
 					<tbody>
 						<c:choose>
 							<c:when test="${fn:length(list) > 0}">
-								<c:forEach items="${list }" begin="${ page.startIndex }" end="${page.startIndex + page.pageSize }" var="row">
+								<c:forEach items="${list }" begin="${ page.startIndex }" end="${page.startIndex + page.pageSize - 1 }" var="row">
 									<tr class='clickable-row' ng-click=getID('${row.no }')>
 										<td>${row.no }</td>
 										<td>${row.title }</td>
