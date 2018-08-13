@@ -5,7 +5,6 @@ html, body{
 	weight: 100vw;
 }
 
-
 .container{
 	width: 70%;
 	height: 70%;
@@ -21,6 +20,33 @@ html, body{
 	margin-bottom : 15px;
 }
 
+.comment-box{
+	padding-top : 20px;
+	padding-left : 3%;
+	padding-right : 3%;
+	border : 1px solid #D3D3D3;
+	border-radius : 10px;
+}
+
+.comment-write{
+	padding : 20px;
+	border : 1px solid #D3D3D3;
+	border-radius : 10px;
+}
+
+.comment-write-form{
+	padding-left : 10px;
+	padding-right : 10px;
+	padding-top : 10px;
+}
+
+.right95{
+	padding-left : 95%;
+}
+
+.small-font{
+	font-size : small;
+}
 
 #enter-view{
 	background-image : url('../img/enter_back.jpg');
