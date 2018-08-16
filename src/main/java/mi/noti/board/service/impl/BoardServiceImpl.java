@@ -52,8 +52,6 @@ public class BoardServiceImpl implements BoardService {
 	public List<Map<String, Object>> addCommentList(Comment co) throws Exception {
 		// TODO Auto-generated method stub
 		int val = notiDAO.insertComment(co);
-		System.out.println(val);
-		
 		return notiDAO.selectNotiComment(co.getNo());
 	}
 }

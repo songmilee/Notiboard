@@ -15,7 +15,7 @@
 			</div>
 			
 			<div class="row table-responsive">
-				<table class="table table-hover" id="board">
+				<table class="table table-hover" id="board" style="text-align:center">
 					<colgroup>
 						<col width="10%" />
 						<col width = "*"/>
