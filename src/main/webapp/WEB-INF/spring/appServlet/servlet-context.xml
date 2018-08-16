@@ -29,5 +29,8 @@
 	
 	<context:component-scan base-package="mi.noti.board" />	
 	
+	<!-- set favicon -->
+	<resources mapping="/favicon.ico" location="/favicon.ico" />
+	
 	
 </beans:beans>
