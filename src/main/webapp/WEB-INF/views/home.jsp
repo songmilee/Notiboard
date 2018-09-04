@@ -9,7 +9,8 @@
 				<form action="/blist">
 					<input type="text" name="user_name" placeholder="Enter your name">								
 					<input type="submit" class="btn btn-default btn-primary" value="Enter">
-				</form>						
+				</form>	
+				<button class="btn btn-default btn-primary">Register</button>					
 				<p><br>The time on the server is ${serverTime}. </p>								
 			</div>
 		</div>
