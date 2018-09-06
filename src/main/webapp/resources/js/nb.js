@@ -1,4 +1,4 @@
-var app = angular.module('noti', ['ngRoute']);
+var app = angular.module('noti', ['ngRoute', 'angular-md5']);
 
 var curpage = 1;
 app.config(function($locationProvider, $routeProvider){
@@ -6,6 +6,29 @@ app.config(function($locationProvider, $routeProvider){
 	    enabled: true,
 	    requireBase: false
 	  });
+});
+
+app.controller('homeController', function($scope, $window, md5){
+	
+	$scope.login = function(){
+		if(!$scope.id && !$scope.pwd) alert("폼을 채워 주세요.");
+		else if(!$scope.id) alert("ID를 입력해 주세요.");
+		else if(!$scope.pwd) alert("비밀번호를 입력해 주세요");
+		else{
+			pd = md5.createHash($scope.pwd || "");
+			data = {
+					id : $scope.id,
+					pwd : pd
+			}
+			
+			console.log(data);
+		}
+	}
+	
+	$scope.moveReg = function(){
+		$window.location.href="/register";
+	}
+	
 });
 
 app.controller('blistController', function($scope, $window, $http, $location){

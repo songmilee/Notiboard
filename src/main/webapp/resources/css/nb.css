@@ -1,19 +1,14 @@
-html, body{
+html{
 	margin : 0;
 	padding : 0;
-	height: 100vh;
-	weight: 100vw;
+	height: 100%;
+	width : 100%;
 }
 
-.container{
-	width: 70%;
-	height: 70%;
-	margin: 40px auto;
-}
-
-.outer{
-	padding-top : 10%;
-	padding-left : 30%;
+.content{
+	padding-top : 5%;
+	padding-right : 5%;
+	padding-left : 5%;
 }
 
 .bottom-space{
@@ -40,8 +35,8 @@ html, body{
 	padding-top : 10px;
 }
 
-.right95{
-	padding-left : 95%;
+.max-width{
+	width : 100%;
 }
 
 .small-font{
@@ -49,12 +44,15 @@ html, body{
 }
 
 #enter-view{
+	height:100%;
+	
 	background-image : url('../img/enter_back.jpg');
 	background-repeat : no-repeat;
 	background-size : cover;
 	opacity : 0.5;
 	padding-top: 20%;
 	padding-right: 15%;
+	padding-left : 15%;
 	color : white;
 	font-weight : bold;
 }

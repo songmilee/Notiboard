@@ -5,8 +5,8 @@
 <html>
 	<%@ include file="./partial/header.html" %>
 <body>
-	<div ng-app="noti" ng-controller="blistController" class="row">
-		<div class="container">			
+	<div ng-app="noti" ng-controller="blistController">
+		<div class="content">			
 			<p>Hello! <%= request.getParameter("user_name") %></p>
 			<p>전체 게시글 : ${total }</p>
 			
