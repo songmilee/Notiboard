@@ -2,7 +2,7 @@ package mi.noti.board.model;
 
 public class Member {
 	int uid;
-	String id, pw;
+	String id, pwd;
 	String name;
 	public int getUid() {
 		return uid;
@@ -16,11 +16,11 @@ public class Member {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getPw() {
-		return pw;
+	public String getPwd() {
+		return pwd;
 	}
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 	public String getName() {
 		return name;

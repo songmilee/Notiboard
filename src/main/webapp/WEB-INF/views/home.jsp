@@ -3,7 +3,7 @@
 <body ng-app="noti">
 	<div class="row" id="enter-view" ng-controller="homeController">
 		<div style="padding-top : 30px; margin:0 auto;">
-			<form ng-submit="login()" class="table-responsive">
+			<div class="table-responsive">
 				<table class="table table-borderless">
 					<tr>
 						<td>ID</td>
@@ -14,13 +14,13 @@
 						<td><input type="password" ng-model="pwd" placeholder="Enter your password"/></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="submit" class="btn btn-default btn-primary" style="width : 100%" value="Enter"></td>
+						<td colspan="2"><button type="submit" class="btn btn-default btn-primary max-width" ng-click="login()">Login</button></td>
 					</tr>
 					<tr>
-						<td colspan="2"><button class="btn btn-default btn-primary" style="width : 100%" ng-click="moveReg()">Register</button></td>
+						<td colspan="2"><button class="btn btn-default btn-primary max-width" onclick="go('/register')">Register</button></td>
 					</tr>
 				</table>															
-			</form>																	
+			</div>																	
 		</div>
 	</div>
 

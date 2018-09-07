@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="mi.noti.board.mapper.MemberMapper">
+	<insert id="addMember" parameterType="mi.noti.board.model.Member">
+		insert into member values(null, #{id}, #{pwd}, #{name} )
+	</insert>
+	
+	<select id="selectMember" resultType="mi.noti.board.model.Member">
+		select * from member where member.id=#{id} and member.pwd=#{pwd}
+	</select>
+</mapper>

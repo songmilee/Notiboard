@@ -8,27 +8,70 @@ app.config(function($locationProvider, $routeProvider){
 	  });
 });
 
-app.controller('homeController', function($scope, $window, md5){
+app.controller('homeController', function($scope, $window, md5, $http){
 	
 	$scope.login = function(){
-		if(!$scope.id && !$scope.pwd) alert("폼을 채워 주세요.");
-		else if(!$scope.id) alert("ID를 입력해 주세요.");
-		else if(!$scope.pwd) alert("비밀번호를 입력해 주세요");
+		if(!$scope.id || !$scope.pwd) alert("폼을 채워 주세요.");		
 		else{
 			pd = md5.createHash($scope.pwd || "");
-			data = {
+			login = {
 					id : $scope.id,
 					pwd : pd
 			}
 			
-			console.log(data);
+			$scope.disableBtn = true;
+			
+			$http({
+				method : "POST",				
+				url : "/",
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+				data : $.param(login)
+			}).then(function success(res){
+				result = res.data.result;
+				if(result == "1000"){
+					alert("로그인에 성공하셨습니다.");
+					$window.location.href="/blist";
+				} else if(result == "2000"){
+					alert("로그인에 실패하셨습니다. ID/비밀번호를 다시 한 번 확인해주세요.");
+				}
+			}), function fail(res){
+				alert("내부적 오류입니다. 다시 시도해 주세요");
+			}
 		}
 	}
-	
-	$scope.moveReg = function(){
-		$window.location.href="/register";
+		
+});
+
+app.controller('registerController', function($scope, $window, $http, md5){
+	$scope.register = function(){
+		if(!$scope.id || !$scope.pwd || !$scope.name) alert("폼을 채워주세요.");
+		else{
+			mdpwd = md5.createHash($scope.pwd || "");
+			
+			member = {
+					id : $scope.id,
+					pwd : mdpwd,
+					name : name
+			}
+			
+			$http({
+				method : "POST",
+				url : "/register",
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+				data : $.param(member)
+			}).then(function success(res){
+				result = res.data.result;
+				if(result == "3000"){
+					alert("정보가 등록 되었습니다.");
+					$window.location.href="/";
+				} else if(result == "4000"){
+					alert("등록에 실패하셨습니다. ID가 중복됩니다.");
+				}
+			}), function fail(res){
+				alert("내부적 오류입니다. 다시 시도 부탁드립니다.");
+			}
+		}
 	}
-	
 });
 
 app.controller('blistController', function($scope, $window, $http, $location){
@@ -132,3 +175,8 @@ app.controller('viewController', function($scope, $http, $window, $location){
 		}
 	}
 });
+
+function go(path){
+	console.log(path);
+	window.location.href = path;
+}
